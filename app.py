@@ -16,14 +16,13 @@ layout="wide"
 
 model = joblib.load("model.pkl")
 
-st.title("🎓 Student Dropout Prediction System")
+st.title("🎓 Student Dropout Prediction")
 
 st.markdown("""
 This machine learning application predicts a student's academic status based on demographic, academic, financial, and socio-economic factors.
 
 Possible outcomes:
 - ⚠️ Dropout
-- 📚 Enrolled
 - 🎓 Graduate
   """)
 
@@ -444,12 +443,8 @@ if st.button("🔍 Predict Student Status"):
 
     if prediction == "Dropout":
         st.error("⚠️ High Risk of Dropout")
-
-    elif prediction == "Enrolled":
-        st.warning("📚 Student Likely Enrolled")
-
     else:
-        st.success("🎓 Student Likely Graduate")
+        st.success("🎓 Likely to Graduate")
 
     st.write("Prediction:", prediction)
 
@@ -457,29 +452,24 @@ if st.button("🔍 Predict Student Status"):
 
     st.subheader("📊 Class Probabilities")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
 
     with col1:
         st.metric("Dropout", f"{probability[0]*100:.2f}%")
 
     with col2:
-        st.metric("Enrolled", f"{probability[1]*100:.2f}%")
-
-    with col3:
-        st.metric("Graduate", f"{probability[2]*100:.2f}%")
+        st.metric("Graduate", f"{probability[1]*100:.2f}%")
 
     st.subheader("📌 General Dropout Risk Factors")
 
     st.markdown("""
     Factors that have the strongest influence on dropout risk:
 
-    - 📚 Academic performance in Semester 1 and Semester 2
-    - 📝 Number of enrolled and credited curricular units
-    - 🎓 Course / Study Program
-    - 👤 Age at enrollment
-    - 📈 Economic conditions (Unemployment Rate)
+    - 📚 Curricular Units 2nd Semester Approved
+    - 📖 Curricular Units 1st Semester Approved
+    - 💰 Tuition Fees Up to Date
+    - 📝 Curricular Units 2nd Semester Grade
+    - 🌍 International Student Status
 
     These factors were obtained from Logistic Regression feature analysis.
     """)
-
-
