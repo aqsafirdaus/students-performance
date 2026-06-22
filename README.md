@@ -160,9 +160,9 @@ docker cp metabase.db.mv.db metabase:/metabase.db.mv.db
 
 4. Restart Container
 
-docker restart metabase
+   docker restart metabase
 
-5. Akses Dashboard
+6. Akses Dashboard
 
 Buka browser:
 
