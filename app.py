@@ -450,15 +450,25 @@ if st.button("🔍 Predict Student Status"):
 
     st.progress(float(max(probability)))
 
+    # st.subheader("📊 Class Probabilities")
+
+    # col1, col2 = st.columns(2)
+
+    # with col1:
+    #     st.metric("Dropout", f"{probability[0]*100:.2f}%")
+
+    # with col2:
+    #     st.metric("Graduate", f"{probability[1]*100:.2f}%")
+    
     st.subheader("📊 Class Probabilities")
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns([1, 1, 3])
 
     with col1:
-        st.metric("Dropout", f"{probability[0]*100:.2f}%")
+        st.metric("⚠️ Dropout", f"{probability[0]*100:.2f}%")
 
     with col2:
-        st.metric("Graduate", f"{probability[1]*100:.2f}%")
+        st.metric("🎓 Graduate", f"{probability[1]*100:.2f}%")
 
     st.subheader("📌 General Dropout Risk Factors")
 
