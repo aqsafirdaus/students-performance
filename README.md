@@ -131,9 +131,11 @@ http://localhost:3000/public/dashboard/4ff2edd0-f3d0-48c9-a0ce-2dde067699e6
 ### Menjalankan Dashboard Metabase
 
 1. Pull Image Metabase
+
 docker pull metabase/metabase:v0.46.4
 
-2. Jalankan Container Metabase
+3. Jalankan Container Metabase
+
 docker run -d 
 -p 3000:3000 
 --name metabase 
